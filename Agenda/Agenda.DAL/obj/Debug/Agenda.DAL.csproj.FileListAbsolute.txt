@@ -1,0 +1,6 @@
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\bin\Debug\Agenda.DAL.dll
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\bin\Debug\Agenda.DAL.pdb
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\obj\Debug\Agenda.DAL.csproj.AssemblyReference.cache
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\obj\Debug\Agenda.DAL.csproj.CoreCompileInputs.cache
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\obj\Debug\Agenda.DAL.dll
+R:\documentos\github\curso_tdd_csharp_2024\Agenda\Agenda.DAL\obj\Debug\Agenda.DAL.pdb
