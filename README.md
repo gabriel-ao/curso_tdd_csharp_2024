@@ -36,3 +36,17 @@ c###
     "dotnet-test-explorer.enableTelemetry": false
 }
     
+
+# Criando projeto - seção 4
+
+## Criando base de dados
+
+Create Database Agenda
+go
+
+create table Contato
+(
+    ID uniqueidentifier primary key,
+    Nome varchar(100)
+)
+
