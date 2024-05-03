@@ -7,7 +7,7 @@ using System.Linq;
 namespace Agenda.DAL.Test
 {
     [TestFixture]
-    public class ContatosTest
+    public class ContatosTest : BaseTest
     {
         Contatos _contatos;
 
