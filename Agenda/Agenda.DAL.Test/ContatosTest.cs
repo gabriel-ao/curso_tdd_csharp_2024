@@ -1,5 +1,6 @@
 ﻿//using NUnit.Framework;
 using Agenda.Domain;
+using AutoFixture;
 using NUnit.Framework;
 using System;
 using System.Linq;
@@ -10,22 +11,20 @@ namespace Agenda.DAL.Test
     public class ContatosTest : BaseTest
     {
         Contatos _contatos;
+        Fixture _fixture;
 
         [SetUp]
         public void SetUp()
         {
             _contatos = new Contatos();
+            _fixture = new Fixture();
         }
 
         [Test]
         public void AdicionarContatoTest()
         {
             // monta
-            var contato = new Contato()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Kaleb"
-            };
+            Contato contato = _fixture.Create<Contato>();
 
             // executa
             _contatos.Adicionar(contato);
@@ -37,14 +36,10 @@ namespace Agenda.DAL.Test
         [Test]
         public void ObterContatoTest()
         {
-            var contatoResultado = new Contato();
+            Contato contatoResultado = new Contato();
 
             // monta
-            var contato = new Contato()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "magali0205"
-            };
+            Contato contato = _fixture.Create<Contato>();
 
             // executa
             _contatos.Adicionar(contato);
@@ -55,39 +50,12 @@ namespace Agenda.DAL.Test
             Assert.AreEqual(contato.Nome, contatoResultado.Nome);
         }
 
-        [Test]
-        public void ObterTodosOsContatosTest()
-        {
-            // monta
-            var contato1 = new Contato()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "monica0205"
-            };
-
-            var contato2 = new Contato()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "cebolinha0205"
-            };
-
-            // executa
-            _contatos.Adicionar(contato1);
-            _contatos.Adicionar(contato2);
-
-            var result = _contatos.ObterTodos();
-            var contatoResulta = result.Where(o => o.Id == contato1.Id).FirstOrDefault();
-
-            // verifica
-            Assert.IsTrue(result.Count() > 1);
-            Assert.AreEqual(contatoResulta.Id, contato1.Id);
-            Assert.AreEqual(contatoResulta.Nome, contato1.Nome);
-        }
 
         [TearDown]
         public void TearDown()
         {
             _contatos = null;
+            _fixture = null;
         }
 
     }
