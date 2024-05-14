@@ -31,14 +31,11 @@ namespace Agenda.Repos.Test
             // monta
             // criar moq de Icontato
 
-
             Mock<IContato> mContato = IContatoConstr
                 .Um()
                 .ComId(contatoId)
                 .ComNome("Gabriel")
                 .Obter();
-            //mContato.SetupGet(o => o.Id).Returns(contatoId);
-            //mContato.SetupGet(o => o.Nome).Returns("João");
             mContato.SetupSet(o => o.Telefones = It.IsAny<List<ITelefone>>())
                 .Callback<List<ITelefone>>(p => lstTelefone = p);
             
@@ -52,10 +49,6 @@ namespace Agenda.Repos.Test
                 .ComId(telefoneId)
                 .ComContatoId(contatoId)
                 .Construir();
-            //Mock<ITelefone> mTelefone = new Mock<ITelefone>();
-            //mTelefone.SetupGet(o => o.Id).Returns(telefoneId);
-            //mTelefone.SetupGet(o => o.Numero).Returns("1234-1234");
-            //mTelefone.SetupGet(o => o.ContatoId).Returns(contatoId);
 
             // Moq da função ObterTodosDoContato de Itelefones
             _telefones.Setup(o => o.ObterTodosDoContato(contatoId)).Returns(new List<ITelefone> { mockTelefone });
